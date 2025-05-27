@@ -1,3 +1,4 @@
+import re
 from textnode import TextType, TextNode
 
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
@@ -18,7 +19,7 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
                 new_nodes.append(TextNode(split_node[i], text_type))
     return new_nodes
 
-node = TextNode("**bold** and _italic_", TextType.TEXT)
-nodes = split_nodes_delimiter([node], "**", TextType.BOLD)
-final_nodes = split_nodes_delimiter(nodes, "_", TextType.ITALIC)
 
+string = "This is text with a ![rick roll](http://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
+results = re.findall(r"!\[([^\[\]]*)", string)
+print(results)
