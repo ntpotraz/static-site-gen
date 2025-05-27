@@ -19,7 +19,9 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
                 new_nodes.append(TextNode(split_node[i], text_type))
     return new_nodes
 
+def extract_markdown_images(text):
+    return re.findall(r"!\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
 
-string = "This is text with a ![rick roll](http://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
-results = re.findall(r"!\[([^\[\]]*)", string)
-print(results)
+def extract_markdown_links(text):
+    return re.findall(r"[^!]\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
+
