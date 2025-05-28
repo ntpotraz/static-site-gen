@@ -82,15 +82,3 @@ def text_to_textnodes(text):
     image_link_code_italic_bold_nodes = split_nodes_image(link_code_italic_bold_nodes)
     return image_link_code_italic_bold_nodes
 
-test = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
-
-nodes = text_to_textnodes(test)
-
-print("[")
-for node in nodes:
-    print(f"    {node}")
-
-print("]")
-
-
-
